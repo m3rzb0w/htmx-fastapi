@@ -1,0 +1,194 @@
+/* ------------------ */
+/* Reset & base */
+/* ------------------ */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Inter, Helvetica, Arial, sans-serif;
+  background: #fff;
+  color: #000;
+}
+
+/* ------------------ */
+/* Page frame & rails */
+/* ------------------ */
+.page-frame {
+  position: relative;
+  min-height: 100vh;
+}
+
+.vline {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: #e6e6e6;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.vline.left {
+  left: 200px;
+}
+
+.vline.right {
+  right: 200px;
+}
+
+/* ------------------ */
+/* Navigation */
+/* ------------------ */
+.nav {
+  height: 64px;
+  padding: 0 200px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.nav-left {
+  font-size: 20px;
+  font-weight: 700;
+  margin-left: 25px;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.nav-right a {
+  font-size: 14px;
+  color: #000;
+  text-decoration: none;
+}
+
+.server-indicator {
+  font-size: 12px;
+  color: #777;
+}
+
+/* ------------------ */
+/* Hero section */
+/* ------------------ */
+.hero {
+  min-height: calc(10vh - 64px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.grid-bg {
+  /* establish stacking context for the pseudo-element grid */
+  position: relative;
+}
+
+/* bounded grid: painted only between the vertical rails (80px from each side) */
+.grid-bg::before {
+  content: "";
+  position: absolute;
+  left: 200px;
+  right: 200px;
+  top: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image: linear-gradient(to right, #f6f6f6 1px, transparent 1px),
+    linear-gradient(to bottom, #f6f6f6 1px, transparent 1px);
+  /* smaller, denser grid */
+  background-size: 14px 14px;
+  background-position: center top;
+}
+
+/* ensure content sits above the grid */
+.hero-inner {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-inner {
+  max-width: 1000px;
+  padding: 120px 80px;
+  text-align: center;
+}
+
+.meta {
+  font-size: 12px;
+  color: #777;
+  margin-bottom: 32px;
+}
+
+h1 {
+  font-size: clamp(44px, 6vw, 72px);
+  line-height: 1.1;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.code-pill {
+  display: inline-block;
+  margin-left: 12px;
+  padding: 6px 16px;
+  background: #f3f3f3;
+  border-radius: 6px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.8em;
+  vertical-align: middle;
+}
+
+.slash {
+  margin-left: 4px;
+  color: #bbb;
+}
+
+.subtitle {
+  margin-top: 24px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #666;
+}
+
+/* ------------------ */
+/* Projects section */
+/* ------------------ */
+.projects {
+  border-top: 1px solid #eaeaea;
+  padding: 96px 160px;
+}
+
+.projects-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 80px 1fr auto;
+  align-items: start;
+}
+
+.index {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.projects-content h2 {
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+
+.projects-content p {
+  max-width: 600px;
+  line-height: 1.6;
+  color: #555;
+}
+
+.meta-file {
+  font-size: 12px;
+  color: #888;
+}
