@@ -1,0 +1,78 @@
+{% extends 'base.page.html' %}
+
+{% block content %}
+<html data-theme="corporate">
+<main class="hero grid-bg">
+  <div class="hero-inner">
+    <div class="flex flex-col gap-8 justify-center items-center">
+      <div class="info">
+        <h2 class="text-2xl font-bold">Form Explanation</h2>
+        <p class="text-base-content">Please select an option and enter a value below. You can use this area to write an
+          explanation or instructions for the form.</p>
+      </div>
+
+      <form id="launchScraper" class="flex flex-col gap-4 max-w-sm" hx-post="/test2" hx-target="#response-div"
+        hx-trigger="confirmed">
+        <!-- Select + Input row -->
+        <div class="flex gap-4">
+          <select class="select select-bordered w-40 indent-2" name="select_scraper" required>
+            <option value="" disabled selected>Choose a scraper</option>
+            <option value="option1">Option 1</option>
+            <option value="option2">Option 2</option>
+            <option value="option3">Option 3</option>
+          </select>
+
+          <input type="text" placeholder="Enter value" class="input input-bordered w-40 indent-2" name="input_id" required />
+        </div>
+
+        <!-- Submit button -->
+        <button type="button" class="btn btn-primary w-full" onclick="confirmScrapLaunch()">
+          Submit
+        </button>
+      </form>
+    </div>
+  </div>
+</main>
+
+<section class="projects">
+  <div class="projects-inner">
+    <div class="index">01</div>
+    <div class="projects-content">
+      <h2>Projects</h2>
+      <p>
+        We are the creators, maintainers, and contributors of some of the most
+        critical infrastructure projects in the JavaScript ecosystem.
+      </p>
+    </div>
+    <div class="meta-file">projects.json</div>
+  </div>
+</section>
+
+<div id="response-div"></div>
+
+</html>
+<script>
+  function confirmScrapLaunch() {
+    const form = document.getElementById('launchScraper');
+    if (form.checkValidity()) {
+    Swal.fire({
+      title: "Confirm Scrap Launch",
+      text: "This action cannot be undone.",
+      icon: "question",
+      showCancelButton: true
+    }).then((result) => {
+      if (result.isConfirmed) {
+        htmx.trigger("#launchScraper", "confirmed");
+      }
+    });
+  } else {
+    form.reportValidity();
+  }
+  }
+
+  document.body.addEventListener("itemAdded", function(evt){
+    // evt.detail.scraper will contain "option1", etc.
+    Swal.fire("Success!", "Started " + evt.detail.scraper, "success");
+})
+</script>
+{% endblock %}

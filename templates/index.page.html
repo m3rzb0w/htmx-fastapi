@@ -1,35 +1,36 @@
 {% extends 'base.page.html' %}
 
 {% block content %}
-<html data-theme="corporate">
+<html data-theme="light">
 <main class="hero grid-bg">
   <div class="hero-inner">
-    <div class="flex flex-col gap-8 justify-center items-center">
-      <div class="info">
-        <h2 class="text-2xl font-bold">Form Explanation</h2>
-        <p class="text-base-content">Please select an option and enter a value below. You can use this area to write an
-          explanation or instructions for the form.</p>
-      </div>
-
-      <form id="launchScraper" class="flex flex-col gap-4 max-w-sm" hx-post="/test2" hx-target="#response-div"
-        hx-trigger="confirmed">
-        <!-- Select + Input row -->
-        <div class="flex gap-4">
-          <select class="select select-bordered w-40 indent-2" name="select_scraper" required>
-            <option value="" disabled selected>Choose a scraper</option>
-            <option value="option1">Option 1</option>
-            <option value="option2">Option 2</option>
-            <option value="option3">Option 3</option>
-          </select>
-
-          <input type="text" placeholder="Enter value" class="input input-bordered w-40 indent-2" name="input_id" required />
+    <!-- Form Card -->
+    <div style="background: white; border-radius: 12px; border: 1px solid #e9ecef; padding: 40px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); max-width: 480px; margin: 0 auto;">
+      <div class="flex flex-col gap-8 justify-center items-center">
+        <div class="info" style="text-align: center;">
+          <h2 style="font-size: 24px; font-weight: 700; margin-bottom: 8px;">Launch New Scraper</h2>
+          <p style="color: #666; font-size: 14px; line-height: 1.5;">Select a scraper and enter the target ID to begin a new job.</p>
         </div>
+        <form id="launchScraper" class="flex flex-col gap-4" style="width: 100%;" hx-post="/test2" hx-target="#response-div"
+          hx-trigger="confirmed">
+          <!-- Select + Input row -->
+          <div class="flex gap-4">
+            <select class="select select-bordered flex-1 indent-2" style="height: 48px; border: 2px solid #e9ecef; border-radius: 8px;" name="select_scraper" required>
+              <option value="" disabled selected>Choose a scraper</option>
+              <option value="option1">Product</option>
+              <option value="option2">Image</option>
+              <option value="option3">Metadata</option>
+            </select>
 
-        <!-- Submit button -->
-        <button type="button" class="btn btn-primary w-full" onclick="confirmScrapLaunch()">
-          Submit
-        </button>
-      </form>
+            <input type="text" placeholder="Enter ID" class="input input-bordered flex-1 indent-2" style="height: 48px; border: 2px solid #e9ecef; border-radius: 8px;" name="input_id" required />
+          </div>
+
+          <!-- Submit button -->
+          <button type="button" class="btn btn-primary w-full" style="height: 48px; border-radius: 8px; font-weight: 600;" onclick="confirmScrapLaunch()">
+            Launch
+          </button>
+        </form>
+      </div>
     </div>
   </div>
 </main>

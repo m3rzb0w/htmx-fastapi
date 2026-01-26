@@ -2,8 +2,284 @@
 
 {% block content %}
 
-<html data-theme="corporate">
-    <h1>Dashboard</h1>
+<html data-theme="light">
+  <div style="padding: 64px 200px 96px 200px;">
+    <!-- Dashboard Header -->
+    <div style="margin-bottom: 48px;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+        <div>
+          <h1 style="font-size: 32px; font-weight: 700; margin-bottom: 8px;">Scraping Jobs</h1>
+          <p style="color: #666; font-size: 14px;">Monitor and manage your scraping operations</p>
+        </div>
+        <button class="btn btn-primary" style="height: 48px; padding: 0 24px;">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+          </svg>
+          New Job
+        </button>
+      </div>
+      
+      <!-- Stats Cards -->
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 32px;">
+        <div style="background: #f8f9fa; border-radius: 12px; padding: 20px; border: 1px solid #e9ecef;">
+          <div style="color: #666; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px;">Total Jobs</div>
+          <div style="font-size: 28px; font-weight: 700; color: #000;">5</div>
+        </div>
+        <div style="background: #f0fdf4; border-radius: 12px; padding: 20px; border: 1px solid #bbf7d0;">
+          <div style="color: #15803d; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px;">Complete</div>
+          <div style="font-size: 28px; font-weight: 700; color: #15803d;">1</div>
+        </div>
+        <div style="background: #eff6ff; border-radius: 12px; padding: 20px; border: 1px solid #bfdbfe;">
+          <div style="color: #1e40af; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px;">Processing</div>
+          <div style="font-size: 28px; font-weight: 700; color: #1e40af;">2</div>
+        </div>
+        <div style="background: #fef2f2; border-radius: 12px; padding: 20px; border: 1px solid #fecaca;">
+          <div style="color: #b91c1c; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px;">Failed</div>
+          <div style="font-size: 28px; font-weight: 700; color: #b91c1c;">1</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Table Container -->
+    <div style="background: white; border-radius: 12px; border: 1px solid #e9ecef; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+      <div class="overflow-x-auto">
+        <table class="table" style="margin: 0;">
+      <thead style="background: #f8f9fa; border-bottom: 2px solid #e9ecef;">
+        <tr>
+          <th style="font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; color: #666; padding: 20px 16px;">Job ID</th>
+          <th style="font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; color: #666; padding: 20px 16px;">Type</th>
+          <th style="font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; color: #666; padding: 20px 16px;">Module</th>
+          <th style="font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; color: #666; padding: 20px 16px;">Sale ID</th>
+          <th style="font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; color: #666; padding: 20px 16px;">Brand</th>
+          <th style="font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; color: #666; padding: 20px 16px;">Status</th>
+          <th style="font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; color: #666; padding: 20px 16px;">Progress</th>
+          <th style="font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; color: #666; padding: 20px 16px;">Started</th>
+          <th style="font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; color: #666; padding: 20px 16px;">Embedded</th>
+          <th style="font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; color: #666; padding: 20px 16px;">Action</th>
+        </tr>
+      </thead>
+      <tbody style="background: white;">
+        <tr style="border-bottom: 1px solid #f1f3f5; transition: background 0.2s;" onmouseover="this.style.background='#f8f9fa'" onmouseout="this.style.background='white'">
+          <td style="padding: 24px 16px;"><span class="font-mono text-sm" style="font-weight: 600; color: #000;">#J-2401</span></td>
+          <td style="padding: 24px 16px;"><span class="badge badge-success badge-sm">Product</span></td>
+          <td style="padding: 24px 16px;">Product Catalog</td>
+          <td style="padding: 24px 16px;">S-8492</td>
+          <td style="padding: 24px 16px;">Nike</td>
+          <td style="padding: 24px 16px;"><span class="badge badge-success badge-sm">Complete</span></td>
+          <td style="padding: 24px 16px;">
+            <div class="space-y-1">
+              <div class="flex items-center gap-2">
+                <span class="text-xs text-gray-600">Scraping:</span>
+                <progress class="progress progress-success w-24" value="100" max="100"></progress>
+                <span class="text-xs">100%</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-xs text-gray-600">Download:</span>
+                <progress class="progress progress-success w-24" value="100" max="100"></progress>
+                <span class="text-xs">100%</span>
+              </div>
+            </div>
+          </td>
+          <td class="text-sm" style="padding: 24px 16px; vertical-align: middle;">Jan 26, 2026</td>
+          <td style="padding: 24px 16px; vertical-align: middle;">
+            <input type="checkbox" class="checkbox checkbox-success" checked />
+          </td>
+          <td style="padding: 24px 16px; vertical-align: middle;">
+            <div class="flex gap-1">
+              <button class="btn btn-success btn-xs" title="Download Pictures">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                </svg>
+              </button>
+              <button class="btn btn-error btn-xs" title="Delete">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                </svg>
+              </button>
+            </div>
+          </td>
+        </tr>
+        <tr style="border-bottom: 1px solid #f1f3f5; transition: background 0.2s;" onmouseover="this.style.background='#f8f9fa'" onmouseout="this.style.background='white'">
+          <td style="padding: 24px 16px;"><span class="font-mono text-sm" style="font-weight: 600; color: #000;">#J-2402</span></td>
+          <td style="padding: 24px 16px;"><span class="badge badge-info badge-sm">Image</span></td>
+          <td style="padding: 24px 16px;">Product Images</td>
+          <td style="padding: 24px 16px;">S-8493</td>
+          <td style="padding: 24px 16px;">Adidas</td>
+          <td style="padding: 24px 16px;"><span class="badge badge-info badge-sm">Scraping</span></td>
+          <td style="padding: 24px 16px;">
+            <div class="space-y-1">
+              <div class="flex items-center gap-2">
+                <span class="text-xs text-gray-600">Scraping:</span>
+                <progress class="progress progress-info w-24" value="65" max="100"></progress>
+                <span class="text-xs">65%</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-xs text-gray-600">Download:</span>
+                <progress class="progress w-24" value="0" max="100"></progress>
+                <span class="text-xs">0%</span>
+              </div>
+            </div>
+          </td>
+          <td class="text-sm" style="padding: 24px 16px; vertical-align: middle;">Jan 25, 2026</td>
+          <td style="padding: 24px 16px; vertical-align: middle;">
+            <input type="checkbox" class="checkbox" disabled />
+          </td>
+          <td style="padding: 24px 16px; vertical-align: middle;">
+            <div class="flex gap-1">
+              <button class="btn btn-warning btn-xs" title="Pause">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </button>
+              <button class="btn btn-error btn-xs" title="Delete">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                </svg>
+              </button>
+            </div>
+          </td>
+        </tr>
+        <tr style="border-bottom: 1px solid #f1f3f5; transition: background 0.2s;" onmouseover="this.style.background='#f8f9fa'" onmouseout="this.style.background='white'">
+          <td style="padding: 24px 16px;"><span class="font-mono text-sm" style="font-weight: 600; color: #000;">#J-2403</span></td>
+          <td style="padding: 24px 16px;"><span class="badge badge-warning badge-sm">Meta</span></td>
+          <td style="padding: 24px 16px;">Product Metadata</td>
+          <td style="padding: 24px 16px;">S-8494</td>
+          <td style="padding: 24px 16px;">Puma</td>
+          <td style="padding: 24px 16px;"><span class="badge badge-warning badge-sm">Paused</span></td>
+          <td style="padding: 24px 16px;">
+            <div class="space-y-1">
+              <div class="flex items-center gap-2">
+                <span class="text-xs text-gray-600">Scraping:</span>
+                <progress class="progress progress-warning w-24" value="30" max="100"></progress>
+                <span class="text-xs">30%</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-xs text-gray-600">Download:</span>
+                <progress class="progress w-24" value="0" max="100"></progress>
+                <span class="text-xs">0%</span>
+              </div>
+            </div>
+          </td>
+          <td class="text-sm" style="padding: 24px 16px; vertical-align: middle;">Jan 26, 2026</td>
+          <td style="padding: 24px 16px; vertical-align: middle;">
+            <input type="checkbox" class="checkbox" disabled />
+          </td>
+          <td style="padding: 24px 16px; vertical-align: middle;">
+            <div class="flex gap-1">
+              <button class="btn btn-info btn-xs" title="Resume">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </button>
+              <button class="btn btn-error btn-xs" title="Delete">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                </svg>
+              </button>
+            </div>
+          </td>
+        </tr>
+        <tr style="border-bottom: 1px solid #f1f3f5; transition: background 0.2s;" onmouseover="this.style.background='#f8f9fa'" onmouseout="this.style.background='white'">
+          <td style="padding: 24px 16px;"><span class="font-mono text-sm" style="font-weight: 600; color: #000;">#J-2404</span></td>
+          <td style="padding: 24px 16px;"><span class="badge badge-error badge-sm">Product</span></td>
+          <td style="padding: 24px 16px;">Full Catalog</td>
+          <td style="padding: 24px 16px;">S-8495</td>
+          <td style="padding: 24px 16px;">Reebok</td>
+          <td style="padding: 24px 16px;"><span class="badge badge-error badge-sm">Failed</span></td>
+          <td style="padding: 24px 16px;">
+            <div class="space-y-1">
+              <div class="flex items-center gap-2">
+                <span class="text-xs text-gray-600">Scraping:</span>
+                <progress class="progress progress-error w-24" value="45" max="100"></progress>
+                <span class="text-xs">45%</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-xs text-gray-600">Download:</span>
+                <progress class="progress w-24" value="0" max="100"></progress>
+                <span class="text-xs">0%</span>
+              </div>
+            </div>
+          </td>
+          <td class="text-sm" style="padding: 24px 16px; vertical-align: middle;">Jan 25, 2026</td>
+          <td style="padding: 24px 16px; vertical-align: middle;">
+            <input type="checkbox" class="checkbox" disabled />
+          </td>
+          <td style="padding: 24px 16px; vertical-align: middle;">
+            <div class="flex gap-1">
+              <button class="btn btn-info btn-xs" title="Resume">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </button>
+              <button class="btn btn-error btn-xs" title="Delete">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                </svg>
+              </button>
+            </div>
+          </td>
+        </tr>
+        <tr style="border-bottom: 1px solid #f1f3f5; transition: background 0.2s;" onmouseover="this.style.background='#f8f9fa'" onmouseout="this.style.background='white'">
+          <td style="padding: 24px 16px;"><span class="font-mono text-sm" style="font-weight: 600; color: #000;">#J-2405</span></td>
+          <td style="padding: 24px 16px;"><span class="badge badge-success badge-sm">Product</span></td>
+          <td style="padding: 24px 16px;">New Arrivals</td>
+          <td style="padding: 24px 16px;">S-8496</td>
+          <td style="padding: 24px 16px;">Under Armour</td>
+          <td style="padding: 24px 16px;"><span class="badge badge-success badge-sm">Complete</span></td>
+          <td style="padding: 24px 16px;">
+            <div class="space-y-1">
+              <div class="flex items-center gap-2">
+                <span class="text-xs text-gray-600">Scraping:</span>
+                <progress class="progress progress-success w-24" value="100" max="100"></progress>
+                <span class="text-xs">100%</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-xs text-gray-600">Download:</span>
+                <progress class="progress progress-info w-24" value="80" max="100"></progress>
+                <span class="text-xs">80%</span>
+              </div>
+            </div>
+          </td>
+          <td class="text-sm" style="padding: 24px 16px; vertical-align: middle;">Jan 26, 2026</td>
+          <td style="padding: 24px 16px; vertical-align: middle;">
+            <input type="checkbox" class="checkbox" disabled />
+          </td>
+          <td style="padding: 24px 16px; vertical-align: middle;">
+            <div class="flex gap-1">
+              <button class="btn btn-warning btn-xs" title="Pause Download">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </button>
+              <button class="btn btn-error btn-xs" title="Delete">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                </svg>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+      <tfoot style="background: #f8f9fa; border-top: 2px solid #e9ecef;">
+        <tr>
+          <th style="font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; color: #666;">Job ID</th>
+          <th style="font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; color: #666;">Type</th>
+          <th style="font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; color: #666;">Module</th>
+          <th style="font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; color: #666;">Sale ID</th>
+          <th style="font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; color: #666;">Brand</th>
+          <th style="font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; color: #666;">Status</th>
+          <th style="font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; color: #666;">Progress</th>
+          <th style="font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; color: #666;">Started</th>
+          <th style="font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; color: #666;">Embedded</th>
+          <th style="font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; color: #666;">Action</th>
+        </tr>
+      </tfoot>
+    </table>
+      </div>
+    </div>
+  </div>
 </html>
 
 {% endblock %}
